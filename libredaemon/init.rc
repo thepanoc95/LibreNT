@@ -1,0 +1,17 @@
+# LibreNT Init Script
+# This script is executed by libredaemon at startup
+
+# Set environment variables
+setenv LIBRENT 1
+setenv DAEMON_MODE enabled
+
+# Set registry values
+regset HKCU\Software\LibreNT\Mode debug
+regset HKCU\Software\LibreNT\Version 0.1.0
+
+# Start processes
+start notepad.exe
+spawn calc.exe
+
+# Log completion
+log Boot complete

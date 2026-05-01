@@ -1,0 +1,23 @@
+tools:
+    shell:
+        allow:
+            - cd *
+            - cargo check
+            - mv *
+            - rustup target add *
+            - cargo check *
+            - ls *
+            - grep *
+            - head *
+            - cargo build *
+            - which x86_64-w64-mingw32-gcc
+            - x86_64-w64-mingw32-gcc *
+            - mkdir *
+            - file *
+            - make *
+            - x86_64-w64-mingw32-strip *
+            - "true"
+paths:
+    allow:
+        - path: /home/oaky/Projects/LibreNT/libredaemon/**
+          write: true
