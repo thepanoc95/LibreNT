@@ -1,0 +1,57 @@
+[package]
+name = "winelf"
+version = "0.1.0"
+edition = "2021"
+authors = ["OakyMacintosh"]
+description = "ELF executable support for Windows"
+license = "MIT"
+
+[lib]
+name = "winelf"
+path = "src/lib.rs"
+
+[[bin]]
+name = "winelf-loader"
+path = "src/main.rs"
+
+[dependencies]
+# Memory management
+memmap2 = "0.9"
+
+# Binary parsing
+goblin = "0.8"  # ELF parsing library
+
+# Error handling
+thiserror = "1.0"
+
+# Logging
+log = "0.4"
+simplelog = "0.12"
+
+# Windows API bindings (works on Windows target)
+windows = { version = "0.58", features = ["Win32_System_Memory", "Win32_System_Diagnostics_Debug"] }
+
+[target.'cfg(windows)'.dependencies]
+# Additional Windows-specific dependencies can go here
+
+[target.'cfg(unix)'.dependencies]
+# Unix dependencies for cross-platform support during development
+
+[features]
+default = ["x86_64"]
+x86_64 = []
+x86 = []
+aarch64 = []
+
+[profile.release]
+lto = true
+codegen-units = 1
+strip = true
+
+# Cross-compilation targets for Windows from Linux/macOS
+# Run: rustup target add x86_64-pc-windows-gnu
+[target.x86_64-pc-windows-gnu]
+rustflags = ["-C", "target-feature=+crt-static"]
+
+[target.i686-pc-windows-gnu]
+rustflags = ["-C", "target-feature=+crt-static"]

@@ -1,0 +1,100 @@
+#include "resource.h"
+
+/////////////////////////////////////////////////////////////////////////////
+// LibreNT Installer - NT 4.0 Style Setup Wizard
+/////////////////////////////////////////////////////////////////////////////
+
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+
+// Application icon
+IDI_APP_ICON    ICON    "installer.ico"
+
+// Main wizard dialog - Welcome page
+IDD_WELCOME_DIALOG DIALOGEX 0, 0, 317, 190
+STYLE DS_FIXEDSYS | DS_MODALFRAME | DS_3DLOOK | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "LibreNT Setup Wizard"
+FONT 8, "MS Shell Dlg", 0, 0x1
+BEGIN
+    CONTROL         "", IDC_WIZARD_BMP, "Static", SS_BITMAP, 0, 0, 180, 190
+    LTEXT           "Welcome to LibreNT Setup",IDC_TITLE,190,10,120,24
+    LTEXT           "LibreNT - WindowsNT on the hands of freedom\n\nThis wizard installs LibreNT on your computer. It will:\n- Apply the WIM image to the target drive using DISM\n- Convert the partition to Btrfs using ntfs2btrfs\n- Install the Quibble bootloader\n- Configure your system",IDC_WELCOME_TEXT,190,40,120,100
+    LTEXT           "Click Next to continue.",IDC_STATIC,190,150,120,8
+END
+
+// Destination selection page
+IDD_DESTINATION_DIALOG DIALOGEX 0, 0, 317, 190
+STYLE DS_FIXEDSYS | DS_MODALFRAME | DS_3DLOOK | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "LibreNT Setup Wizard"
+FONT 8, "MS Shell Dlg", 0, 0x1
+BEGIN
+    CONTROL         "", IDC_WIZARD_BMP, "Static", SS_BITMAP, 0, 0, 180, 190
+    LTEXT           "Select Destination",IDC_TITLE,190,10,120,8
+    LTEXT           "Select the drive where you want to install LibreNT:",IDC_STATIC,190,30,120,16
+    COMBOBOX        IDC_DRIVE_COMBO,190,50,120,100,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Available space:",IDC_STATIC,190,70,120,8
+    LTEXT           "0 MB",IDC_SPACE_TEXT,190,80,120,8
+    CONTROL         "&Format partition as Btrfs (recommended)",IDC_FORMAT_CHECK,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,190,100,120,10
+    LTEXT           "Installation directory:",IDC_STATIC,190,118,120,8
+    EDITTEXT        IDC_PATH_EDIT,190,130,90,12,ES_AUTOHSCROLL
+    LTEXT           "\\LibreNT",IDC_STATIC,282,130,28,8
+END
+
+// Installation progress page
+IDD_PROGRESS_DIALOG DIALOGEX 0, 0, 317, 190
+STYLE DS_FIXEDSYS | DS_MODALFRAME | DS_3DLOOK | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "LibreNT Setup Wizard"
+FONT 8, "MS Shell Dlg", 0, 0x1
+BEGIN
+    CONTROL         "", IDC_WIZARD_BMP, "Static", SS_BITMAP, 0, 0, 180, 190
+    LTEXT           "Installing LibreNT",IDC_TITLE,190,10,120,8
+    CONTROL         "", IDC_PROGRESS_BAR, "msctls_progress32", PBS_SMOOTH | WS_BORDER,190,40,120,14
+    LTEXT           "Current step: Applying WIM image...",IDC_STEP_TEXT,190,60,120,20
+    EDITTEXT        IDC_LOG_EDIT,190,85,120,70,ES_MULTILINE | ES_READONLY | WS_VSCROLL
+    LTEXT           "Elapsed time: 00:00:00",IDC_TIME_TEXT,190,160,120,8
+END
+
+// Finish page
+IDD_FINISH_DIALOG DIALOGEX 0, 0, 317, 190
+STYLE DS_FIXEDSYS | DS_MODALFRAME | DS_3DLOOK | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "LibreNT Setup Wizard"
+FONT 8, "MS Shell Dlg", 0, 0x1
+BEGIN
+    CONTROL         "", IDC_WIZARD_BMP, "Static", SS_BITMAP, 0, 0, 180, 190
+    LTEXT           "Completing the Wizard",IDC_TITLE,190,10,120,8
+    LTEXT           "LibreNT has been successfully installed!\n\nTo start LibreNT, remove the installation media.\n\nClick Finish to restart your computer.",IDC_FINISH_TEXT,190,40,120,60
+    CONTROL         "&View release notes",IDC_RELEASE_CHECK,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,190,110,120,10
+    CONTROL         "&Restart now (recommended)",IDC_RESTART_CHECK,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,190,122,120,10
+    LTEXT           "LibreNT - WindowsNT on the hands of freedom",IDC_STATIC,190,170,120,8
+END
+
+// About dialog
+IDD_ABOUT_DIALOG DIALOGEX 0, 0, 230, 120
+STYLE DS_FIXEDSYS | DS_MODALFRAME | DS_3DLOOK | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "About LibreNT Installer"
+FONT 8, "MS Shell Dlg", 0, 0x1
+BEGIN
+    ICON            IDI_APP_ICON,IDC_STATIC,10,10,20,20
+    LTEXT           "LibreNT Installer v1.0",IDC_STATIC,40,10,180,8
+    LTEXT           "WindowsNT on the hands of freedom",IDC_STATIC,40,25,180,8
+    LTEXT           "Copyright (c) 2024 LibreNT Project",IDC_STATIC,40,40,180,8
+    DEFPUSHBUTTON   "OK",IDCANCEL,170,95,50,14,WS_GROUP
+END
+
+// Wizard bitmap - side panel
+IDB_WIZARD_BMP    BITMAP  "wizard.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+// Strings
+/////////////////////////////////////////////////////////////////////////////
+STRINGTABLE
+BEGIN
+    IDS_APPTITLE    "LibreNT Setup"
+    IDS_WELCOME_TITLE "Welcome to LibreNT Setup"
+    IDS_WELCOME_TEXT "LibreNT - WindowsNT on the hands of freedom\n\nThis wizard installs LibreNT on your computer."
+    IDS_SELECT_DEST_TITLE "Select Destination"
+    IDS_INSTALLING_TITLE "Installing LibreNT"
+    IDS_FINISH_TITLE "Completing the Wizard"
+END

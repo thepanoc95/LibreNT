@@ -1,0 +1,6 @@
+[submodule "system/quibble"]
+	path = system/quibble
+	url = https://github.com/maharmstone/quibble
+[submodule "utils/ntfs2btrfs"]
+	path = utils/ntfs2btrfs
+	url = https://github.com/maharmstone/ntfs2btrfs

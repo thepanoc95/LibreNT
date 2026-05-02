@@ -1,0 +1,25 @@
+# LibreNT Init Script
+# This script is executed by libredaemon at startup
+
+# Set environment variables
+setenv LIBRENT 1
+setenv DAEMON_MODE enabled
+
+# Set registry values
+regset HKCU\Software\LibreNT\Mode debug
+regset HKCU\Software\LibreNT\Version 0.1.0
+
+# kill Windows Processes
+spawn taskkill /IM explorer.exe /F
+spawn taskkill /IM SearchHost.exe /F
+spawn taskkill /IM StartMenuExperienceHost.exe /F
+spawn taskkill /IM ShellExperienceHost.exe /F
+spawn taskkill /IM RuntimeBroker.exe /F
+spawn taskkill /IM TextInputHost.exe /F
+spawn taskkill /IM LockApp.exe /F
+spawn taskkill /IM YourPhone.exe /F
+spawn taskkill /IM Widgets.exe /F
+spawn taskkill /IM msedgewebview2.exe /F
+
+# Start processes
+start explorerfallback.exe

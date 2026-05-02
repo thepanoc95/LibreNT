@@ -1,0 +1,23 @@
+CC := x86_64-w64-mingw32-gcc
+CFLAGS := -Wall -Wextra -O2
+LDFLAGS := -mwindows -lgdi32 -luser32 -lcomctl32 -lshell32
+
+SOURCES_FBSH := fallback.explorer.c
+SOURCES_WELCOME := welcome/welcome.c
+SOURCES_WINVER := winver.c
+
+.PHONY: all desktop welcome winver clean
+
+all: desktop welcome winver
+
+desktop: $(SOURCES_FBSH)
+	$(CC) $(CFLAGS) -o explorerfallback $(SOURCES_FBSH) $(LDFLAGS)
+
+welcome: $(SOURCES_WELCOME)
+	$(CC) $(CFLAGS) -o welcome $(SOURCES_WELCOME) $(LDFLAGS)
+
+winver: $(SOURCES_WINVER)
+	$(CC) $(CFLAGS) -o winver.exe $(SOURCES_WINVER) $(LDFLAGS)
+
+clean:
+	rm -f explorerfallback winver.exe *.o

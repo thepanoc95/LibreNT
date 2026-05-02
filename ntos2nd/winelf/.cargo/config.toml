@@ -1,0 +1,18 @@
+# Cargo configuration for WinELF
+
+# Default target for native Windows builds
+[build]
+# Uncomment for native Windows builds: target = "x86_64-pc-windows-msvc"
+
+# Cross-compilation settings for Windows from Linux using mingw-w64
+[target.x86_64-pc-windows-gnu]
+linker = "x86_64-w64-mingw32-gcc"
+rustflags = ["-C", "target-feature=+crt-static", "-C", "link-arg=-static-libgcc"]
+
+[target.i686-pc-windows-gnu]
+linker = "i686-w64-mingw32-gcc"
+rustflags = ["-C", "target-feature=+crt-static", "-C", "link-arg=-static-libgcc"]
+
+# MSVC target for native Windows or cross-compiling with llvm-mingw
+[target.x86_64-pc-windows-msvc]
+rustflags = ["-C", "target-feature=+crt-static"]

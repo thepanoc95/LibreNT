@@ -1,0 +1,15 @@
+tools:
+    shell:
+        allow:
+            - cd *
+            - x86_64-w64-mingw32-gcc *
+            - ls *
+            - make clean
+            - make winver
+            - make all
+            - make
+            - find *
+paths:
+    allow:
+        - path: /home/oaky/Projects/LibreNT/mswindows/**
+          write: true

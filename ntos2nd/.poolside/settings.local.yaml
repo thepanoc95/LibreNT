@@ -1,0 +1,18 @@
+tools:
+    shell:
+        allow:
+            - mkdir *
+            - chmod *
+            - rm *
+            - which x86_64-w64-mingw32-gcc cmake *
+            - echo *
+            - cd *
+            - cmake *
+            - head *
+            - ls *
+paths:
+    allow:
+        - path: /home/oaky/Projects/LibreNT/ntos2nd/ntos2nd/**
+          write: true
+        - path: /home/oaky/Projects/LibreNT/ntos2nd/**
+          write: true
