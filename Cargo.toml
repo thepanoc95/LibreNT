@@ -1,0 +1,9 @@
+[workspace]
+members = ["libredaemon", "setup", "", "utils/libreplatformbuilder"]
+
+[package]
+name = "LibreNT"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]

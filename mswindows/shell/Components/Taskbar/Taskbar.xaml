@@ -1,0 +1,55 @@
+<UserControl
+    x:Class="LibreNT.Shell.Components.Taskbar.Taskbar"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <CornerRadius x:Key="TaskbarCornerRadius">8</CornerRadius>
+    </UserControl.Resources>
+
+    <Border Background="{ThemeResource SystemControlBackgroundBaseMediumLowBrush}"
+            CornerRadius="{StaticResource TaskbarCornerRadius}"
+            Padding="8,4"
+            MinHeight="48">
+        <Grid x:Name="TaskbarGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Start Button -->
+            <Button x:Name="StartButton"
+                    Grid.Column="0"
+                    Click="OnStartButtonClick"
+                    Style="{StaticResource ButtonRevealStyle}"
+                    Width="40"
+                    Height="40"
+                    Margin="4,0">
+                <FontIcon Glyph="&#xE700;" 
+                          FontFamily="Segoe MDL2 Assets"
+                          FontSize="16" />
+            </Button>
+
+            <!-- Task List (centered) -->
+            <ScrollView Grid.Column="1"
+                        HorizontalScrollBarVisibility="Hidden"
+                        VerticalScrollBarVisibility="Hidden">
+                <StackPanel x:Name="TaskListPanel"
+                            Orientation="Horizontal"
+                            Spacing="4"
+                            HorizontalAlignment="Center" />
+            </ScrollView>
+
+            <!-- System Tray -->
+            <StackPanel Grid.Column="2"
+                        x:Name="SystemTrayArea"
+                        Orientation="Horizontal"
+                        Spacing="4"
+                        VerticalAlignment="Center" />
+        </Grid>
+    </Border>
+</UserControl>

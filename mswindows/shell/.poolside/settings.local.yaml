@@ -1,0 +1,16 @@
+tools:
+    shell:
+        allow:
+            - find *
+            - mkdir *
+            - rm *
+            - ls *
+            - echo *
+            - sort
+paths:
+    allow:
+        - path: /home/oaky/Projects/LibreNT/**
+        - path: /home/oaky/Projects/LibreNT/mswindows/shell/**
+          write: true
+        - path: /home/oaky/Projects/LibreNT/mswindows/**
+          write: true

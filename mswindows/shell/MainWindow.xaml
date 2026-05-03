@@ -1,0 +1,41 @@
+<Window
+    x:Class="LibreNT.Shell.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LibreNT.Shell"
+    xmlns:components="using:LibreNT.Shell.Components"
+    mc:Ignorable="d"
+    Title="LibreNT Desktop"
+    ExtendsContentIntoTitleBar="True">
+
+    <Window.SystemBackdrop>
+        <MicaBackdrop Kind="Base" />
+    </Window.SystemBackdrop>
+
+    <Grid x:Name="RootGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Desktop area -->
+        <Border x:Name="DesktopArea"
+                Grid.Row="0"
+                Background="{ThemeResource SystemControlBackgroundBaseLowBrush}" />
+
+        <!-- Taskbar (Windows 11 style - centered) -->
+        <components:Taskbar x:Name="MainTaskbar"
+                            Grid.Row="1"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Bottom" />
+
+        <!-- Start Menu (hidden by default) -->
+        <Popup x:Name="StartMenuPopup"
+               Placement="Bottom"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Top"
+               Margin="0,0,0,60">
+            <components:StartMenu x:Name="StartMenuControl" />
+        </Popup>
+    </Grid>
+</Window>

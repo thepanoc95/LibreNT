@@ -1,0 +1,22 @@
+tools:
+    shell:
+        allow:
+            - ls *
+            - echo *
+            - find *
+            - head *
+            - mkdir *
+            - cd *
+            - cargo check
+            - cargo search *
+            - tail *
+            - cargo build *
+            - sleep 15
+            - sleep 30
+            - sleep 45
+            - /home/oaky/Projects/LibreNT/target/release/libreplatformbuilder *
+paths:
+    allow:
+        - path: /home/oaky/Projects/LibreNT/**
+        - path: /home/oaky/Projects/LibreNT/utils/libreplatformbuilder/**
+          write: true

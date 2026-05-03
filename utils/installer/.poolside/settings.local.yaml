@@ -1,4 +1,0 @@
-paths:
-    allow:
-        - path: /home/oaky/Projects/LibreNT/utils/installer/**
-          write: true

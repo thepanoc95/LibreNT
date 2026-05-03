@@ -87,9 +87,9 @@ install(FILES ${NTOS2ND_HEADERS}
 )
 
 # Main executable
-add_executable(ntos2nd_exe NTMain.c)
-target_include_directories(ntos2nd_exe PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
-target_link_libraries(ntos2nd_exe PRIVATE ntos2nd)
+add_executable(ntos2ndk NTMain.c)
+target_include_directories(ntos2ndk PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+target_link_libraries(ntos2ndk PRIVATE ntos2nd)
 
 # Example programs
 add_subdirectory(examples)

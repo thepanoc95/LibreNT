@@ -1,0 +1,67 @@
+[package]
+name = "libreplatformbuilder"
+version = "0.1.0"
+edition = "2021"
+description = "LibreNT Platform Builder - Build custom Windows ISOs with open-source alternatives"
+authors = ["LibreNT Project"]
+license = "MIT"
+
+[dependencies]
+# CLI argument parsing
+clap = { version = "4.6", features = ["derive"] }
+
+# TUI (Terminal UI)
+ratatui = "0.29"
+crossterm = "0.28"
+
+# WIM handling via subprocess (wimlib-imagex)
+# Note: wimlib-rs has limited functionality, using command-line wimlib instead
+
+# ISO handling - we use command-line tools (7z, mkisofs, xorriso) for ISO operations
+
+# Configuration and serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+toml = "0.8"
+
+# File operations
+walkdir = "2.5"
+glob = "0.3"
+
+# Logging
+log = "0.4"
+env_logger = "0.11"
+
+# Error handling
+anyhow = "1.0"
+thiserror = "1.0"
+
+# Path handling
+path-clean = "1.0"
+
+# GUI dependencies (conditional)
+eframe = { version = "0.29", optional = true }
+egui = { version = "0.29", optional = true }
+
+[features]
+default = []
+gui = ["eframe", "egui"]
+
+[[bin]]
+name = "libreplatformbuilder"
+path = "src/main.rs"
+
+[[bin]]
+name = "lpb-tui"
+path = "src/bin/tui.rs"
+
+[[bin]]
+name = "lpb-gui"
+path = "src/bin/gui.rs"
+
+[package.metadata.winres]
+ProductName = "LibreNT Platform Builder"
+FileDescription = "Build custom Windows ISOs with open-source alternatives"
+OriginalFilename = "libreplatformbuilder.exe"
+LegalCopyright = "LibreNT Project"
+ProductVersion = "0.1.0"
