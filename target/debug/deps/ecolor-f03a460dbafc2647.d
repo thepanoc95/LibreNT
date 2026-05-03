@@ -1,0 +1,12 @@
+/home/oaky/Projects/LibreNT/target/debug/deps/ecolor-f03a460dbafc2647.d: /home/oaky/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.29.1/src/lib.rs /home/oaky/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.29.1/src/color32.rs /home/oaky/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.29.1/src/hsva_gamma.rs /home/oaky/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.29.1/src/hsva.rs /home/oaky/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.29.1/src/rgba.rs /home/oaky/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.29.1/src/hex_color_runtime.rs
+
+/home/oaky/Projects/LibreNT/target/debug/deps/libecolor-f03a460dbafc2647.rlib: /home/oaky/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.29.1/src/lib.rs /home/oaky/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.29.1/src/color32.rs /home/oaky/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.29.1/src/hsva_gamma.rs /home/oaky/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.29.1/src/hsva.rs /home/oaky/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.29.1/src/rgba.rs /home/oaky/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.29.1/src/hex_color_runtime.rs
+
+/home/oaky/Projects/LibreNT/target/debug/deps/libecolor-f03a460dbafc2647.rmeta: /home/oaky/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.29.1/src/lib.rs /home/oaky/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.29.1/src/color32.rs /home/oaky/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.29.1/src/hsva_gamma.rs /home/oaky/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.29.1/src/hsva.rs /home/oaky/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.29.1/src/rgba.rs /home/oaky/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.29.1/src/hex_color_runtime.rs
+
+/home/oaky/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.29.1/src/lib.rs:
+/home/oaky/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.29.1/src/color32.rs:
+/home/oaky/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.29.1/src/hsva_gamma.rs:
+/home/oaky/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.29.1/src/hsva.rs:
+/home/oaky/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.29.1/src/rgba.rs:
+/home/oaky/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ecolor-0.29.1/src/hex_color_runtime.rs:
