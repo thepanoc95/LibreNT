@@ -1,0 +1,56 @@
+Windows Registry Editor Version 5.00
+
+; ================================
+; LibreNT Branding Script
+; Changes common Windows branding
+; ================================
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion]
+"ProductName"="LibreNT 0.1.000-testing"
+"EditionID"="LibreNT"
+"DisplayVersion"="0.1.000-testing"
+"ReleaseId"="0.1"
+"CurrentBuild"="000-testing"
+"CurrentBuildNumber"="000-testing"
+"BuildLab"="LibreNT"
+"BuildLabEx"="LibreNT 0.1.000-testing"
+"CompositionEditionID"="LibreNT"
+"RegisteredOrganization"="FreeOrLibre"
+"RegisteredOwner"="LibreNT User"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion]
+"ProgramFilesDir"="C:\\Program Files"
+"CommonFilesDir"="C:\\Program Files\\Common Files"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer]
+"SmartScreenEnabled"="Off"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon]
+"Shell"="explorer.exe"
+
+; ================================
+; Internet Explorer branding
+; (still used by random old components)
+; ================================
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Internet Explorer\Main]
+"Window Title"="LibreNT"
+
+; ================================
+; OEM Branding
+; Shows in Settings/System/About
+; ================================
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation]
+"Manufacturer"="The Panoc95 and contributors"
+"Model"="LibreNT Reference Platform"
+"SupportURL"="https://thepanoc95.github.io/libreNT"
+"SupportPhone"="+00 0000-0000"
+"SupportHours"="24/7"
+; "Logo"="C:\\Windows\\System32\\oemlogo.bmp"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\FreeOrLibre\LibreNT]
+"Version"="0.1.000-testing"
+"Codename"="Femboyslick"
+"KernelFamily"="NT"
+"Architecture"="Hybrid"
