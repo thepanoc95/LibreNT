@@ -1,0 +1,12 @@
+{
+  "name": "LibreNT",
+  "arch": "amd64",
+  "version": "0.1.1-internal",
+  "output": "LibreNT-${version}.iso",
+
+  "packages": ["WinPE-WMI", "WinPE-Scripting", "WinPE-PowerShell"],
+
+  "overlay": "overlay",
+
+  "shell": "X:\\LibreNT\\setup.exe"
+}

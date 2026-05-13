@@ -1,0 +1,17 @@
+tools:
+    shell:
+        allow:
+            - mkdir *
+            - ls *
+            - cat *
+            - echo *
+            - cp *
+            - find *
+            - sort
+            - head *
+paths:
+    allow:
+        - path: /home/oaky/Projects/LibreNT/adk/ossetup/**
+          write: true
+        - path: /home/oaky/Projects/LibreNT/**
+          write: true
