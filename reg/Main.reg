@@ -1,0 +1,20 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SYSTEM\Setup\LabConfig]
+"BypassTPMCheck"=dword:00000001
+"BypassSecureBootCheck"=dword:00000001
+"BypassCPUCheck"=dword:00000001
+"BypassRAMCheck"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control]
+"PortableOperatingSystem"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\MIcrosoft\Windows NT\CurrentVersion]
+"ProductName"="LibreNT"
+"DisplayVersion"="0.1.0001"
+"CurrentBuild"="22631"
+"EditionID"="Enterprise"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon]
+"Shell"="C:\\LibreNT\\System\\OSshell.exe"
+

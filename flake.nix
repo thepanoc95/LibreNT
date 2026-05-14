@@ -36,6 +36,7 @@
         mingwPkgsList = with mingwPkgs; [
           stdenv.cc
           pkg-config
+	  gcc
         ];
 
         # Development shell packages
