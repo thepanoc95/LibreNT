@@ -58,6 +58,7 @@ set(NTOS2ND_HEADERS
     ntos2nd/apibridge.h
     ntos2nd/sandbox.h
     ntos2nd/undocumented.h
+    NTCall.h
 )
 
 # Create the kernel DLL
