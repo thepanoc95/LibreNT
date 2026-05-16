@@ -1,0 +1,6 @@
+LIBRARY "posixsubsystem"
+EXPORTS
+    PosixInitialize
+    PosixShutdown
+    PosixTranslateNtStatusToErrno
+    PosixSpawnProcess

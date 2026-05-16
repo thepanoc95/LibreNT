@@ -17,7 +17,7 @@ public sealed partial class MainWindow : Window
         Activated += OnActivated;
 
         // Initialize system tray
-        var systemTray = new SystemTray.SystemTray();
+        var systemTray = new SystemTray();
         MainTaskbar.SetSystemTray(systemTray);
 
         // Hook up start button

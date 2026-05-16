@@ -27,7 +27,7 @@ public partial class App : Application
         MainWindow.Activate();
     }
 
-    private void OnUnhandledException(object sender, UnhandledExceptionEventArgs e)
+    private void OnUnhandledException(object sender, Microsoft.UI.Xaml.UnhandledExceptionEventArgs e)
     {
         // Log error and continue
     }

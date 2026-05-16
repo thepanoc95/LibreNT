@@ -10,7 +10,7 @@ namespace LibreNT.Shell.Components.SystemTray;
 
 public sealed partial class SystemTray : UserControl, INotifyPropertyChanged
 {
-    private Timer? _timer;
+    private System.Timers.Timer? _timer;
     private string _currentTime = string.Empty;
 
     public string CurrentTime
@@ -30,7 +30,7 @@ public sealed partial class SystemTray : UserControl, INotifyPropertyChanged
 
     private void InitializeTimer()
     {
-        _timer = new Timer(1000);
+        _timer = new System.Timers.Timer(1000);
         _timer.Elapsed += (s, e) => UpdateTime();
         _timer.Start();
     }
