@@ -137,6 +137,20 @@ ntos2nd.exe --sandbox --filter myapp.exe
 
 ## Features
 
+
+### NT Native Wrapper Coverage
+
+`NTCall.c` provides direct wrapper entry points routed through `NTOS2NDHandleSyscall`.
+Current wrappers include:
+
+- `NtCloseWrap`
+- `NtOpenProcessWrap`
+- `NtReadFileWrap`
+- `NtWriteFileWrap`
+- `NtAllocateVirtualMemoryWrap`
+
+These wrappers are declared in `NTCall.h` for consumers embedding ntos2nd.
+
 ### Process Sandbox
 - Child processes run isolated from host
 - IPC communication for syscall forwarding
@@ -199,6 +213,20 @@ cargo build --release
 ```
 
 ### Features
+
+
+### NT Native Wrapper Coverage
+
+`NTCall.c` provides direct wrapper entry points routed through `NTOS2NDHandleSyscall`.
+Current wrappers include:
+
+- `NtCloseWrap`
+- `NtOpenProcessWrap`
+- `NtReadFileWrap`
+- `NtWriteFileWrap`
+- `NtAllocateVirtualMemoryWrap`
+
+These wrappers are declared in `NTCall.h` for consumers embedding ntos2nd.
 
 - **ELF Parsing**: Full 32/64-bit ELF support using goblin
 - **Memory Management**: Virtual memory mapping with proper protections

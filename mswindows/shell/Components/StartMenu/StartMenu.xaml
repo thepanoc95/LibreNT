@@ -14,8 +14,7 @@
 
     <Border Background="{ThemeResource SystemControlBackgroundBaseHighBrush}"
             CornerRadius="{StaticResource StartMenuCornerRadius}"
-            Padding="12"
-            DropShadow>
+            Padding="12">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />

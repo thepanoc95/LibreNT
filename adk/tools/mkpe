@@ -1,0 +1,245 @@
+#!/usr/bin/env python3
+
+import json
+import shutil
+import subprocess
+import sys
+from pathlib import Path
+
+# ============================================
+# Utilities
+# ============================================
+
+
+def log(msg):
+    print(f"[mkpe] {msg}")
+
+
+def fail(msg):
+    print(f"[mkpe:ERROR] {msg}")
+    sys.exit(1)
+
+
+def run(cmd):
+    log(" ".join(cmd))
+    result = subprocess.run(cmd)
+
+    if result.returncode != 0:
+        fail(f"Command failed: {' '.join(cmd)}")
+
+
+# ============================================
+# Spec Loading
+# ============================================
+
+
+def load_spec(path):
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+# ============================================
+# Environment Checks
+# ============================================
+
+
+def find_copype():
+    possible = [
+        r"C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Windows Preinstallation Environment\copype.cmd",
+        r"C:\Program Files\Windows Kits\10\Assessment and Deployment Kit\Windows Preinstallation Environment\copype.cmd",
+    ]
+
+    for p in possible:
+        if Path(p).exists():
+            return p
+
+    fail("Could not find copype.cmd")
+
+
+# ============================================
+# WinPE Creation
+# ============================================
+
+
+def create_base_pe(arch, workdir):
+    copype = find_copype()
+
+    if Path(workdir).exists():
+        shutil.rmtree(workdir)
+
+    run(["cmd", "/c", copype, arch, workdir])
+
+
+# ============================================
+# Mount WIM
+# ============================================
+
+
+def mount_wim(workdir):
+    media = Path(workdir) / "media" / "sources" / "boot.wim"
+    mount = Path(workdir) / "mount"
+
+    mount.mkdir(exist_ok=True)
+
+    run(
+        [
+            "dism",
+            "/Mount-Image",
+            f"/ImageFile:{media}",
+            "/Index:1",
+            f"/MountDir:{mount}",
+        ]
+    )
+
+    return mount
+
+
+# ============================================
+# Add Packages
+# ============================================
+
+
+def add_packages(spec, mount):
+    packages = spec.get("packages", [])
+
+    if not packages:
+        return
+
+    adk_root = Path(
+        r"C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Windows Preinstallation Environment"
+    )
+
+    arch = spec.get("arch", "amd64")
+
+    for pkg in packages:
+        cab = adk_root / arch / "WinPE_OCs" / f"{pkg}.cab"
+
+        if not cab.exists():
+            fail(f"Missing package: {cab}")
+
+        run(["dism", f"/Image:{mount}", "/Add-Package", f"/PackagePath:{cab}"])
+
+
+# ============================================
+# Copy Overlay
+# ============================================
+
+
+def copy_overlay(spec, mount):
+    overlay = spec.get("overlay")
+
+    if not overlay:
+        return
+
+    overlay_path = Path(overlay)
+
+    if not overlay_path.exists():
+        fail(f"Overlay folder not found: {overlay}")
+
+    log(f"Copying overlay: {overlay}")
+
+    for item in overlay_path.rglob("*"):
+        rel = item.relative_to(overlay_path)
+        dest = mount / rel
+
+        if item.is_dir():
+            dest.mkdir(parents=True, exist_ok=True)
+        else:
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(item, dest)
+
+
+# ============================================
+# Set Shell
+# ============================================
+
+
+def set_shell(spec, mount):
+    shell = spec.get("shell")
+
+    if not shell:
+        return
+
+    ini = mount / "Windows" / "System32" / "winpeshl.ini"
+
+    content = f"""[LaunchApps]
+{shell}
+"""
+
+    ini.write_text(content, encoding="utf-8")
+
+    log(f"Set WinPE shell: {shell}")
+
+
+# ============================================
+# Commit
+# ============================================
+
+
+def unmount_commit(workdir):
+    mount = Path(workdir) / "mount"
+
+    run(["dism", "/Unmount-Image", f"/MountDir:{mount}", "/Commit"])
+
+
+# ============================================
+# ISO Creation
+# ============================================
+
+
+def create_iso(workdir, output):
+    media = Path(workdir) / "media"
+
+    makeiso = (
+        r"C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit"
+        r"\Deployment Tools\amd64\Oscdimg\oscdimg.exe"
+    )
+
+    if not Path(makeiso).exists():
+        fail("oscdimg.exe not found")
+
+    run([makeiso, "-m", "-o", "-u2", str(media), output])
+
+
+# ============================================
+# Main
+# ============================================
+
+
+def main():
+    if len(sys.argv) < 2:
+        print("Usage: mkpe.py <spec.json>")
+        sys.exit(1)
+
+    spec_path = sys.argv[1]
+
+    spec = load_spec(spec_path)
+
+    name = spec.get("name", "LibrePE")
+    arch = spec.get("arch", "amd64")
+
+    workdir = f"build/{name}"
+    output = spec.get("output", f"{name}.iso")
+
+    log(f"Building {name}")
+    log(f"Architecture: {arch}")
+
+    create_base_pe(arch, workdir)
+
+    mount = mount_wim(workdir)
+
+    add_packages(spec, mount)
+
+    copy_overlay(spec, mount)
+
+    set_shell(spec, mount)
+
+    unmount_commit(workdir)
+
+    create_iso(workdir, output)
+
+    log(f"ISO created: {output}")
+
+
+if __name__ == "__main__":
+    main()
