@@ -1,3 +1,12 @@
+/*
+ * PROJECT:     LibreNT
+ * LICENSE:     BSD-3-Clause (https://spdx.org/licenses/BSD-3-Clause)
+ * PURPOSE:     Native LibreNT system component
+ * COPYRIGHT:   Copyright 2026 Panoc95
+ */
+
+
+
 #ifndef NTOS2ND_KERNEL_H
 #define NTOS2ND_KERNEL_H
 

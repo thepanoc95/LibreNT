@@ -1,6 +1,8 @@
-# Cargo configuration for WinELF
+# PROJECT:     LibreNT
+# LICENSE:     BSD-3-Clause (https://spdx.org/licenses/BSD-3-Clause)
+# PURPOSE:     Project configuration file
+# COPYRIGHT:   Copyright 2026 Panoc95
 
-# Default target for native Windows builds
 [build]
 # Uncomment for native Windows builds: target = "x86_64-pc-windows-msvc"
 

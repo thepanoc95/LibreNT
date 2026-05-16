@@ -1,3 +1,12 @@
+<!--
+ PROJECT:     LibreNT
+ LICENSE:     BSD-3-Clause (https://spdx.org/licenses/BSD-3-Clause)
+ PURPOSE:     Project documentation
+ COPYRIGHT:   Copyright 2026 Panoc95
+-->
+
+
+
 # ntos2nd POSIX Subsystem (FIPS PUB 151-1-aligned scaffold)
 
 This directory contains a **usable scaffold** for a POSIX subsystem split into:

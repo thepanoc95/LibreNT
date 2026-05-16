@@ -1,3 +1,12 @@
+/*
+ * PROJECT:     LibreNT
+ * LICENSE:     BSD-3-Clause (https://spdx.org/licenses/BSD-3-Clause)
+ * PURPOSE:     LibreNT daemon implementation
+ * COPYRIGHT:   Copyright 2026 Panoc95
+ */
+
+
+
 use windows_sys::Win32::System::Registry::{RegCreateKeyExW, RegSetValueExW, RegCloseKey, HKEY, HKEY_CURRENT_USER, HKEY_LOCAL_MACHINE, REG_OPTION_NON_VOLATILE, KEY_WRITE, REG_SZ};
 use crate::logger;
 

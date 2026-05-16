@@ -1,3 +1,12 @@
+/*
+ * PROJECT:     LibreNT
+ * LICENSE:     BSD-3-Clause (https://spdx.org/licenses/BSD-3-Clause)
+ * PURPOSE:     Windows installer or deployment component
+ * COPYRIGHT:   Copyright 2026 Panoc95
+ */
+
+
+
 #include "DeploymentEngine.h"
 #include "InstallerUI.h"
 #include <windows.h>

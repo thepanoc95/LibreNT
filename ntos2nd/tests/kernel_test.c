@@ -1,4 +1,13 @@
 /*
+ * PROJECT:     LibreNT
+ * LICENSE:     BSD-3-Clause (https://spdx.org/licenses/BSD-3-Clause)
+ * PURPOSE:     Native test support
+ * COPYRIGHT:   Copyright 2026 Panoc95
+ */
+
+
+
+/*
     ntos2nd - Kernel Test Program
     
     Demonstrates using the ntos2nd kernel as a host.

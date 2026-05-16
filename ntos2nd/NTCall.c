@@ -1,4 +1,13 @@
 /*
+ * PROJECT:     LibreNT
+ * LICENSE:     BSD-3-Clause (https://spdx.org/licenses/BSD-3-Clause)
+ * PURPOSE:     Native LibreNT system component
+ * COPYRIGHT:   Copyright 2026 Panoc95
+ */
+
+
+
+/*
     ntos2nd - NT Syscall Wrappers
 
     Direct wrappers for NT Native API syscalls.

@@ -1,3 +1,12 @@
+/*
+ * PROJECT:     LibreNT
+ * LICENSE:     BSD-3-Clause (https://spdx.org/licenses/BSD-3-Clause)
+ * PURPOSE:     LibreNT daemon implementation
+ * COPYRIGHT:   Copyright 2026 Panoc95
+ */
+
+
+
 mod environment;
 mod init;
 mod logger;

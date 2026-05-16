@@ -1,4 +1,13 @@
 /*
+ * PROJECT:     LibreNT
+ * LICENSE:     BSD-3-Clause (https://spdx.org/licenses/BSD-3-Clause)
+ * PURPOSE:     Windows native helper component
+ * COPYRIGHT:   Copyright 2026 Panoc95
+ */
+
+
+
+/*
  * welcome_nt.c - Windows NT "Welcome" dialog clone
  * Compile: cl welcome_nt.c /link user32.lib gdi32.lib
  *   or: gcc welcome_nt.c -o welcome_nt.exe -lgdi32 -luser32 -lcomdlg32 -mwindows

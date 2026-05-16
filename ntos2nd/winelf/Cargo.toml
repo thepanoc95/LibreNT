@@ -1,3 +1,8 @@
+# PROJECT:     LibreNT
+# LICENSE:     BSD-3-Clause (https://spdx.org/licenses/BSD-3-Clause)
+# PURPOSE:     Cargo workspace manifest
+# COPYRIGHT:   Copyright 2026 Panoc95
+
 [package]
 name = "winelf"
 version = "0.1.0"
@@ -29,7 +34,7 @@ log = "0.4"
 simplelog = "0.12"
 
 # Windows API bindings (works on Windows target)
-windows = { version = "0.58", features = ["Win32_System_Memory", "Win32_System_Diagnostics_Debug"] }
+windows = { version = "0.58", features = ["Win32_System_Memory", "Win32_System_Diagnostics_Debug", "Win32_Storage_FileSystem", "Win32_System_IO", "Win32_Foundation"] }
 
 [target.'cfg(windows)'.dependencies]
 # Additional Windows-specific dependencies can go here

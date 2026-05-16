@@ -1,4 +1,13 @@
 /*
+ * PROJECT:     LibreNT
+ * LICENSE:     BSD-3-Clause (https://spdx.org/licenses/BSD-3-Clause)
+ * PURPOSE:     Native LibreNT system component
+ * COPYRIGHT:   Copyright 2026 Panoc95
+ */
+
+
+
+/*
     ntos2nd - Main Entry Point
     
     Usermode Windows NT-like kernel for Windows.
@@ -14,8 +23,7 @@
 #include <stdio.h>
 
 int main(int argc, char* argv[]) {
-    printf("ntos2nd v%s - Usermode Windows NT-like Kernel\n", MSWindowsSystemVersion);
-    printf("=============================================\n\n");
+    printf("ntos2nd v%s\n", MSWindowsSystemVersion);
     
     /* Initialize kernel */
     NTSTATUS status = NTOS2NDInitialize();

@@ -1,3 +1,12 @@
+<!--
+ PROJECT:     LibreNT
+ LICENSE:     BSD-3-Clause (https://spdx.org/licenses/BSD-3-Clause)
+ PURPOSE:     Project documentation
+ COPYRIGHT:   Copyright 2026 Panoc95
+-->
+
+
+
 # ntos2nd
 
 A usermode kernel for Windows that provides a sandboxed environment for running programs, bridging Windows APIs to an open source environment.

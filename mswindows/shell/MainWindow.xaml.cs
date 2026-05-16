@@ -1,3 +1,12 @@
+/*
+ * PROJECT:     LibreNT
+ * LICENSE:     BSD-3-Clause (https://spdx.org/licenses/BSD-3-Clause)
+ * PURPOSE:     Windows shell component
+ * COPYRIGHT:   Copyright 2026 Panoc95
+ */
+
+
+
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Input;
 using LibreNT.Shell.Components.SystemTray;
@@ -44,5 +53,15 @@ public sealed partial class MainWindow : Window
     public void CloseStartMenu()
     {
         StartMenuPopup.IsOpen = false;
+    }
+
+    public void SetWallpaperHost(UIElement wallpaperHost)
+    {
+        WallpaperHost.Content = wallpaperHost;
+    }
+
+    public void ClearWallpaperHost()
+    {
+        WallpaperHost.Content = null;
     }
 }

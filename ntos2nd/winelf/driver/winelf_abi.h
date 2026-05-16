@@ -1,0 +1,39 @@
+/*
+ * PROJECT:     LibreNT
+ * LICENSE:     BSD-3-Clause (https://spdx.org/licenses/BSD-3-Clause)
+ * PURPOSE:     Windows driver or kernel support
+ * COPYRIGHT:   Copyright 2026 Panoc95
+ */
+
+
+
+#ifndef WINELF_DRIVER_ABI_H
+#define WINELF_DRIVER_ABI_H
+
+#include <ntddk.h>
+
+#define WINELF_DEVICE_NAME        L"\\Device\\WinElf"
+#define WINELF_DOS_DEVICE_NAME    L"\\DosDevices\\WinElf"
+
+#define WINELF_IOCTL_BASE         0x800
+#define IOCTL_WINELF_EXECUTE_ELF  CTL_CODE(FILE_DEVICE_UNKNOWN, WINELF_IOCTL_BASE + 0, METHOD_BUFFERED, FILE_ANY_ACCESS)
+#define IOCTL_WINELF_QUERY_STATUS CTL_CODE(FILE_DEVICE_UNKNOWN, WINELF_IOCTL_BASE + 1, METHOD_BUFFERED, FILE_ANY_ACCESS)
+
+#define WINELF_PATH_MAX           260
+
+typedef struct _WINELF_EXECUTE_REQUEST {
+    WCHAR Path[WINELF_PATH_MAX];
+    ULONG Flags;
+} WINELF_EXECUTE_REQUEST, *PWINELF_EXECUTE_REQUEST;
+
+typedef struct _WINELF_EXECUTE_RESPONSE {
+    ULONG ProcessId;
+    NTSTATUS Status;
+} WINELF_EXECUTE_RESPONSE, *PWINELF_EXECUTE_RESPONSE;
+
+typedef struct _WINELF_STATUS_RESPONSE {
+    ULONG ProcessId;
+    NTSTATUS LastStatus;
+} WINELF_STATUS_RESPONSE, *PWINELF_STATUS_RESPONSE;
+
+#endif // WINELF_DRIVER_ABI_H

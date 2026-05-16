@@ -1,3 +1,12 @@
+/*
+ * PROJECT:     LibreNT
+ * LICENSE:     BSD-3-Clause (https://spdx.org/licenses/BSD-3-Clause)
+ * PURPOSE:     Windows installer or deployment component
+ * COPYRIGHT:   Copyright 2026 Panoc95
+ */
+
+
+
 #ifndef REGISTRY_PATCHER_H
 #define REGISTRY_PATCHER_H
 

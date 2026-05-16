@@ -1,3 +1,8 @@
+# PROJECT:     LibreNT
+# LICENSE:     BSD-3-Clause (https://spdx.org/licenses/BSD-3-Clause)
+# PURPOSE:     Project documentation
+# COPYRIGHT:   Copyright 2026 Panoc95
+
 cmake_minimum_required(VERSION 3.16)
 project(LibreNTInstaller VERSION 0.1.0 LANGUAGES CXX)
 

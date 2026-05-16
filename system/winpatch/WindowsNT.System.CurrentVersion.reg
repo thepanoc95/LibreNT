@@ -1,10 +1,5 @@
 Windows Registry Editor Version 5.00
 
-; ================================
-; LibreNT Branding Script
-; Changes common Windows branding
-; ================================
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion]
 "ProductName"="LibreNT 0.1.000-testing"
 "EditionID"="LibreNT"
@@ -26,20 +21,10 @@ Windows Registry Editor Version 5.00
 "SmartScreenEnabled"="Off"
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon]
-"Shell"="explorer.exe"
-
-; ================================
-; Internet Explorer branding
-; (still used by random old components)
-; ================================
+"Shell"="lexplorer.exe"
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Internet Explorer\Main]
 "Window Title"="LibreNT"
-
-; ================================
-; OEM Branding
-; Shows in Settings/System/About
-; ================================
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation]
 "Manufacturer"="The Panoc95 and contributors"
@@ -51,6 +36,6 @@ Windows Registry Editor Version 5.00
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\FreeOrLibre\LibreNT]
 "Version"="0.1.000-testing"
-"Codename"="Femboyslick"
+"Codename"="Windows Yellow"
 "KernelFamily"="NT"
 "Architecture"="Hybrid"

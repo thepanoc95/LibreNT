@@ -1,4 +1,13 @@
 /*
+ * PROJECT:     LibreNT
+ * LICENSE:     BSD-3-Clause (https://spdx.org/licenses/BSD-3-Clause)
+ * PURPOSE:     Windows driver or kernel support
+ * COPYRIGHT:   Copyright 2026 Panoc95
+ */
+
+
+
+/*
   Stub kernel-mode companion for LibreNT POSIX subsystem.
   This is intentionally minimal and avoids unsupported kernel patching.
 */

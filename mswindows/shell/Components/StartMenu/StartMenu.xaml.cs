@@ -1,7 +1,17 @@
+/*
+ * PROJECT:     LibreNT
+ * LICENSE:     BSD-3-Clause (https://spdx.org/licenses/BSD-3-Clause)
+ * PURPOSE:     Windows shell component
+ * COPYRIGHT:   Copyright 2026 Panoc95
+ */
+
+
+
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 
 namespace LibreNT.Shell.Components.StartMenu;
 
@@ -63,28 +73,42 @@ public sealed partial class StartMenu : UserControl
         }
     }
 
-    private void LaunchApp(string appId)
+    private async void LaunchApp(string appId)
     {
-        // Launch the application - in a real implementation,
-        // this would use Windows.ApplicationModel.Store or Process.Start
-        switch (appId)
+        // Launch the application using desktop process APIs and URI launch for shell URIs.
+        // ProcessLauncher.TryLaunch is not available in this SDK version.
+        if (appId == "settings")
         {
-            case "explorer":
-                Windows.System.ProcessLauncher.TryLaunch("explorer.exe", "");
-                break;
-            case "terminal":
-                Windows.System.ProcessLauncher.TryLaunch("wt.exe", "");
-                break;
-            case "browser":
-                Windows.System.ProcessLauncher.TryLaunch("msedge.exe", "");
-                break;
-            case "settings":
-                Windows.System.ProcessLauncher.TryLaunch("ms-settings:", "");
-                break;
-            default:
-                // For demo purposes, show a message
-                // In production, use proper file associations
-                break;
+            try
+            {
+                await Windows.System.Launcher.LaunchUriAsync(new Uri("ms-settings:"));
+            }
+            catch
+            {
+                // Ignore launch failure for demo purposes.
+            }
+
+            return;
+        }
+
+        ProcessStartInfo? startInfo = appId switch
+        {
+            "explorer" => new ProcessStartInfo("explorer.exe") { UseShellExecute = true },
+            "terminal" => new ProcessStartInfo("wt.exe") { UseShellExecute = true },
+            "browser" => new ProcessStartInfo("msedge.exe") { UseShellExecute = true },
+            _ => null,
+        };
+
+        if (startInfo != null)
+        {
+            try
+            {
+                Process.Start(startInfo);
+            }
+            catch
+            {
+                // Ignore launch failure for demo purposes.
+            }
         }
     }
 

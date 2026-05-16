@@ -1,3 +1,12 @@
+/*
+ * PROJECT:     LibreNT
+ * LICENSE:     BSD-3-Clause (https://spdx.org/licenses/BSD-3-Clause)
+ * PURPOSE:     LibreNT platform builder utility
+ * COPYRIGHT:   Copyright 2026 Panoc95
+ */
+
+
+
 //! Operations for boot.wim files
 //! 
 //! Handles extraction and modification of Windows PE boot images

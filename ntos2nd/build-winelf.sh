@@ -1,6 +1,8 @@
 #!/bin/bash
-# Build script for cross-compiling WinELF with mingw-w64
-# Usage: ./build-winelf.sh [debug|release]
+# PROJECT:     LibreNT
+# LICENSE:     BSD-3-Clause (https://spdx.org/licenses/BSD-3-Clause)
+# PURPOSE:     Project maintenance script
+# COPYRIGHT:   Copyright 2026 Panoc95
 
 set -e
 

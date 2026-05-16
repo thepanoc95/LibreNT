@@ -1,3 +1,12 @@
+/*
+ * PROJECT:     LibreNT
+ * LICENSE:     BSD-3-Clause (https://spdx.org/licenses/BSD-3-Clause)
+ * PURPOSE:     Windows shell component
+ * COPYRIGHT:   Copyright 2026 Panoc95
+ */
+
+
+
 using Microsoft.UI.Xaml;
 using System;
 using System.Collections.Generic;

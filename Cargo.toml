@@ -1,9 +1,18 @@
+# PROJECT:     LibreNT
+# LICENSE:     BSD-3-Clause (https://spdx.org/licenses/BSD-3-Clause)
+# PURPOSE:     Cargo workspace manifest
+# COPYRIGHT:   Copyright 2026 Panoc95
+
 [workspace]
-members = ["libredaemon", "setup", "", "utils/libreplatformbuilder"]
+members = ["libredaemon", "utils/libreplatformbuilder", "ntos2nd/winelf"]
 
 [package]
-name = "LibreNT"
+name = "libre_nt"
 version = "0.1.0"
 edition = "2024"
+build = "build.rs"
+
+[build-dependencies]
+cc = "1.0"
 
 [dependencies]

@@ -1,3 +1,12 @@
+/*
+ * PROJECT:     LibreNT
+ * LICENSE:     BSD-3-Clause (https://spdx.org/licenses/BSD-3-Clause)
+ * PURPOSE:     Windows welcome application
+ * COPYRIGHT:   Copyright 2026 Panoc95
+ */
+
+
+
 #nullable enable
 using Microsoft.UI.Xaml;
 using Microsoft.Windows.AppLifecycle;

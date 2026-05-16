@@ -1,3 +1,12 @@
+/*
+ * PROJECT:     LibreNT
+ * LICENSE:     BSD-3-Clause (https://spdx.org/licenses/BSD-3-Clause)
+ * PURPOSE:     POSIX subsystem compatibility layer
+ * COPYRIGHT:   Copyright 2026 Panoc95
+ */
+
+
+
 #ifndef NTOS2ND_POSIX_ABI_H
 #define NTOS2ND_POSIX_ABI_H
 

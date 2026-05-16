@@ -1,3 +1,12 @@
+/*
+ * PROJECT:     LibreNT
+ * LICENSE:     BSD-3-Clause (https://spdx.org/licenses/BSD-3-Clause)
+ * PURPOSE:     LibreNT daemon implementation
+ * COPYRIGHT:   Copyright 2026 Panoc95
+ */
+
+
+
 use windows_sys::Win32::System::Threading::*;
 use windows_sys::Win32::Foundation::*;
 use crate::logger;

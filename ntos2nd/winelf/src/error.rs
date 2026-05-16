@@ -1,3 +1,12 @@
+/*
+ * PROJECT:     LibreNT
+ * LICENSE:     BSD-3-Clause (https://spdx.org/licenses/BSD-3-Clause)
+ * PURPOSE:     WinELF ELF loader and runtime
+ * COPYRIGHT:   Copyright 2026 Panoc95
+ */
+
+
+
 //! Error handling for WinELF
 
 use thiserror::Error;
@@ -64,7 +73,25 @@ pub enum WinElfError {
     /// Not an ELF file
     #[error("Not an ELF file")]
     NotElf,
+
+    /// Driver unavailable or not present
+    #[error("Driver unavailable: {0}")]
+    DriverUnavailable(String),
+
+    /// Driver I/O failure
+    #[error("Driver I/O failure: {0}")]
+    DriverIo(String),
+
+    /// Unsupported target for driver integration
+    #[error("Driver integration is unsupported on this platform")]
+    DriverUnsupportedTarget,
 }
 
 /// WinELF result type
 pub type WinElfResult<T> = Result<T, WinElfError>;
+
+impl From<std::io::Error> for WinElfError {
+    fn from(err: std::io::Error) -> Self {
+        WinElfError::Io(err.to_string())
+    }
+}
