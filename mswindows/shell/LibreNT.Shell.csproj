@@ -13,19 +13,5 @@
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.6.250606001" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ApplicationDefinition Include="App.xaml" />
-    <Compile Include="App.xaml.cs" />
-    <Page Include="MainWindow.xaml" />
-    <Compile Include="MainWindow.xaml.cs" />
-    <Page Include="Components\Taskbar\Taskbar.xaml" />
-    <Compile Include="Components\Taskbar\Taskbar.xaml.cs" />
-    <Page Include="Components\StartMenu\StartMenu.xaml" />
-    <Compile Include="Components\StartMenu\StartMenu.xaml.cs" />
-    <Page Include="Components\SystemTray\SystemTray.xaml" />
-    <Compile Include="Components\SystemTray\SystemTray.xaml.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="Services\WindowManager.cs" />
-  </ItemGroup>
 
 </Project>

@@ -58,6 +58,7 @@ set(NTOS2ND_HEADERS
     ntos2nd/apibridge.h
     ntos2nd/sandbox.h
     ntos2nd/undocumented.h
+    NTCall.h
 )
 
 # Create the kernel DLL
@@ -111,3 +112,25 @@ if(Cargo_FOUND)
         DESTINATION bin
     )
 endif()
+
+
+# POSIX subsystem runtime DLL (user mode)
+add_library(posixsubsystem SHARED
+    posix/runtime/posixsubsystem.c
+    posix/runtime/posixsubsystem.def
+    posix/include/posix_abi.h
+)
+target_include_directories(posixsubsystem PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}/posix/include
+)
+target_link_libraries(posixsubsystem PRIVATE
+    kernel32
+)
+install(TARGETS posixsubsystem
+    LIBRARY DESTINATION lib
+    RUNTIME DESTINATION bin
+    ARCHIVE DESTINATION lib
+)
+install(FILES posix/include/posix_abi.h
+    DESTINATION include/ntos2nd/posix
+)
