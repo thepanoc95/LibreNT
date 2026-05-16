@@ -5,7 +5,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="using:LibreNT.Shell"
-    xmlns:components="using:LibreNT.Shell.Components"
+    xmlns:taskbar="using:LibreNT.Shell.Components.Taskbar"
+    xmlns:startmenu="using:LibreNT.Shell.Components.StartMenu"
     mc:Ignorable="d"
     Title="LibreNT Desktop"
     ExtendsContentIntoTitleBar="True">
@@ -26,7 +27,7 @@
                 Background="{ThemeResource SystemControlBackgroundBaseLowBrush}" />
 
         <!-- Taskbar (Windows 11 style - centered) -->
-        <components:Taskbar x:Name="MainTaskbar"
+        <taskbar:Taskbar x:Name="MainTaskbar"
                             Grid.Row="1"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Bottom" />
@@ -36,7 +37,7 @@
                HorizontalAlignment="Center"
                VerticalAlignment="Top"
                Margin="0,0,0,60">
-            <components:StartMenu x:Name="StartMenuControl" />
+            <startmenu:StartMenu x:Name="StartMenuControl" />
         </Popup>
     </Grid>
 </Window>
