@@ -2,6 +2,7 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 
 namespace LibreNT.Shell.Components.StartMenu;
 
@@ -65,26 +66,38 @@ public sealed partial class StartMenu : UserControl
 
     private void LaunchApp(string appId)
     {
-        // Launch the application - in a real implementation,
-        // this would use Windows.ApplicationModel.Store or Process.Start
         switch (appId)
         {
             case "explorer":
-                Windows.System.ProcessLauncher.TryLaunch("explorer.exe", "");
+                TryLaunch("explorer.exe");
                 break;
             case "terminal":
-                Windows.System.ProcessLauncher.TryLaunch("wt.exe", "");
+                TryLaunch("wt.exe");
                 break;
             case "browser":
-                Windows.System.ProcessLauncher.TryLaunch("msedge.exe", "");
+                TryLaunch("msedge.exe");
                 break;
             case "settings":
-                Windows.System.ProcessLauncher.TryLaunch("ms-settings:", "");
+                TryLaunch("ms-settings:");
                 break;
             default:
-                // For demo purposes, show a message
-                // In production, use proper file associations
                 break;
+        }
+    }
+
+    private static void TryLaunch(string target)
+    {
+        try
+        {
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = target,
+                UseShellExecute = true
+            });
+        }
+        catch
+        {
+            // TODO: wire into shell notifications/logging.
         }
     }
 
